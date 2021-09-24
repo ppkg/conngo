@@ -7,9 +7,9 @@ import (
 )
 
 type Es struct {
-	Url      string
-	UserName string
-	Password string
+	url      string
+	username string
+	password string
 	client   *elastic.Client
 }
 
@@ -25,8 +25,8 @@ func (es *Es) GetClient() *elastic.Client {
 func (es *Es) NewClient() *elastic.Client {
 	if client, err := elastic.NewClient(
 		elastic.SetSniff(false),
-		elastic.SetURL(es.Url),
-		elastic.SetBasicAuth(es.UserName, es.Password),
+		elastic.SetURL(es.url),
+		elastic.SetBasicAuth(es.username, es.password),
 	); err != nil {
 		log.Println(err)
 		return nil

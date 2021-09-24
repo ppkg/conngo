@@ -8,9 +8,9 @@ import (
 )
 
 var es Es = Es{
-	Url:      "http://10.1.1.248:9201",
-	UserName: "elastic",
-	Password: "",
+	url:      "http://10.1.1.248:9201",
+	username: "elastic",
+	password: "",
 }
 
 func TestEs_GetClient(t *testing.T) {

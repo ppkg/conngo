@@ -8,7 +8,7 @@ import (
 	"xorm.io/xorm"
 )
 
-var m MySql = MySql{ConnStr: "root:root@(127.0.0.1:3306)/datacenter?charset=utf8"}
+var m MySql = MySql{connStr: "root:root@(127.0.0.1:3306)/datacenter?charset=utf8"}
 
 func TestMySql_GetEngine(t *testing.T) {
 	tests := []struct {

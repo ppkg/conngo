@@ -8,10 +8,10 @@ import (
 )
 
 var mq Mq = Mq{
-	UserName: "admin",
-	PassWord: "admin",
-	HostName: "10.1.1.248:5672",
-	EndPoint: "",
+	username: "admin",
+	password: "admin",
+	hostname: "10.1.1.248:5672",
+	endpoint: "",
 }
 
 func TestMq_GetConn(t *testing.T) {

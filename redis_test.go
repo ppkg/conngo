@@ -7,7 +7,7 @@ import (
 	"github.com/go-redis/redis"
 )
 
-var r Redis = Redis{Addr: "10.1.1.245:6979", Password: "qlwhIPO82@#KDFQAwe", DB: 0}
+var r Redis = Redis{addr: "10.1.1.245:6979", password: "", db: 0}
 
 func TestRedis_GetClient(t *testing.T) {
 	tests := []struct {

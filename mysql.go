@@ -10,7 +10,7 @@ import (
 )
 
 type MySql struct {
-	ConnStr string
+	connStr string
 	engine  *xorm.Engine
 }
 
@@ -24,7 +24,7 @@ func (m *MySql) GetEngine() *xorm.Engine {
 
 // 创建一个新的Engine
 func (m *MySql) NewEngine() *xorm.Engine {
-	e, err := xorm.NewEngine("mysql", m.ConnStr)
+	e, err := xorm.NewEngine("mysql", m.connStr)
 
 	if err != nil {
 		glog.Error(err)

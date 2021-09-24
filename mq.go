@@ -8,10 +8,10 @@ import (
 )
 
 type Mq struct {
-	UserName string
-	PassWord string
-	HostName string
-	EndPoint string
+	username string
+	password string
+	hostname string
+	endpoint string
 	conn     *amqp.Connection
 	ch       *amqp.Channel
 }
@@ -29,14 +29,14 @@ func (m *Mq) NewConn() *amqp.Connection {
 	var buf bytes.Buffer
 
 	buf.WriteString("amqp://")
-	buf.WriteString(m.UserName)
+	buf.WriteString(m.username)
 	buf.WriteString(":")
-	buf.WriteString(m.PassWord)
+	buf.WriteString(m.password)
 
 	buf.WriteString("@")
-	buf.WriteString(m.HostName)
+	buf.WriteString(m.hostname)
 	buf.WriteString("/")
-	buf.WriteString(m.EndPoint)
+	buf.WriteString(m.endpoint)
 
 	url := buf.String()
 	if conn, err := amqp.Dial(url); err != nil {

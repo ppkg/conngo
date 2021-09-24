@@ -5,11 +5,11 @@ import (
 )
 
 type Redis struct {
-	Addr     string
-	Password string
-	DB       int
+	addr     string
+	password string
+	db       int
 
-	Opt    *redis.Options //此选项是可选的，如果有此选项，则覆盖其它配置
+	opt    *redis.Options //此选项是可选的，如果有此选项，则覆盖其它配置
 	client *redis.Client
 }
 
@@ -25,13 +25,13 @@ func (r *Redis) GetClient() *redis.Client {
 // 始终获取一个新的redis连接
 // 用完需要 Close 释放
 func (r *Redis) NewClient() *redis.Client {
-	if r.Opt == nil {
-		r.Opt = &redis.Options{
-			Addr:         r.Addr,
-			Password:     r.Password,
-			DB:           r.DB,
+	if r.opt == nil {
+		r.opt = &redis.Options{
+			Addr:         r.addr,
+			Password:     r.password,
+			DB:           r.db,
 			MinIdleConns: 6000,
 		}
 	}
-	return redis.NewClient(r.Opt)
+	return redis.NewClient(r.opt)
 }
